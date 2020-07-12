@@ -1,6 +1,10 @@
 $( document ).ready(function() {
-
+    // use this to find out about whois
+    // http://ip-api.com/json
     var characterSet = null;
+    
+    // why this line?
+    // so, we'll only enable start buttons when page is loaded
     $("[name='learn']").prop('disabled', false);
     $(".form-signin").submit(function(e){
         e.preventDefault();

@@ -9,8 +9,9 @@ class Japanese {
         this.char = this.character_set[this.cursor[this.cursor_pos]].char;
         this.syllable = this.character_set[this.cursor[this.cursor_pos]].syllable;
         this.isfirstCharacter = this.cursor_pos === 0;
-        this.islastCharacter = this.character_set.length-1;  
+        this.islastCharacter = this.character_set.length-1;
     }
+    
 
     next(){
         this.cursor_pos +=1;
@@ -51,13 +52,19 @@ class Japanese {
 
 class Hiragana extends Japanese {
     constructor() {
-        super(getHiraganaJson());
+        var request = new XMLHttpRequest();
+        request.open('GET', '/charactersets/hiragana.json', false);  // `false` makes the request synchronous
+        request.send(null);
+        super(JSON.parse(request.responseText));
     }
 
   }
 class Katakana extends Japanese {
     constructor() {
-        super(getKatakanaJson());
+        var request = new XMLHttpRequest();
+        request.open('GET', '/charactersets/katakana.json', false);  // `false` makes the request synchronous
+        request.send(null);
+        super(JSON.parse(request.responseText));
     }
 
   }  
@@ -66,4 +73,4 @@ class Katakana extends Japanese {
         super(getKanjiJson());
     }
 
-  } 
+  }
