@@ -17,7 +17,6 @@ class Japanese {
         }
         this.char = this.character_set[this.cursor[this.cursor_pos]].char;
         this.syllable = this.character_set[this.cursor[this.cursor_pos]].syllable;        
-        return this.cursor_pos;
     }
     previous(){
         this.cursor_pos -= 1;
@@ -27,19 +26,16 @@ class Japanese {
         }
         this.char = this.character_set[this.cursor[this.cursor_pos]].char;
         this.syllable = this.character_set[this.cursor[this.cursor_pos]].syllable;
-        return this.cursor_pos;
     }
     first(){
         this.cursor_pos = 0;
         this.char = this.character_set[this.cursor[this.cursor_pos]].char;
         this.syllable = this.character_set[this.cursor[this.cursor_pos]].syllable;        
-        return this.cursor_pos;
     }
     last(){
         this.cursor_pos = this.character_set.length-1;
         this.char = this.character_set[this.cursor[this.cursor_pos]].char;
         this.syllable = this.character_set[this.cursor[this.cursor_pos]].syllable;        
-        return this.cursor_pos;
     }
 }
 
@@ -49,3 +45,15 @@ class Hiragana extends Japanese {
     }
 
   }
+class Katakana extends Japanese {
+    constructor() {
+        super(getKatakanaJson());
+    }
+
+  }  
+  class Kanji extends Japanese {
+    constructor() {
+        super(getKanjiJson());
+    }
+
+  } 
