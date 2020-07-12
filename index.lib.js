@@ -53,7 +53,7 @@ class Japanese {
 class Hiragana extends Japanese {
     constructor() {
         var request = new XMLHttpRequest();
-        request.open('GET', '/charactersets/hiragana.json', false);  // `false` makes the request synchronous
+        request.open('GET', 'https://peterbarraud.github.io/learnjapanese/charactersets/hiragana.json', false);  // `false` makes the request synchronous
         request.send(null);
         super(JSON.parse(request.responseText));
     }
