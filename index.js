@@ -32,6 +32,8 @@ $( document ).ready(function() {
         $( '#char_pic' ).prop('src',characterSet.char);
         $( '#syllable' ).text(characterSet.syllable);
         $( '#moveprevious' ).prop('disabled', characterSet.isfirstCharacter);
+        $( '#movefirst' ).prop('disabled', characterSet.isfirstCharacter);
+        $( '#movelast' ).prop('disabled', characterSet.islastCharacter);
     });
     // F-N-L-P
     $( '#movefirst').click(function(event){
@@ -39,6 +41,8 @@ $( document ).ready(function() {
         $( '#char_pic' ).prop('src',characterSet.char);
         $( '#syllable' ).text(characterSet.syllable);
         $( '#moveprevious' ).prop('disabled', characterSet.isfirstCharacter);
+        $( '#movefirst' ).prop('disabled', characterSet.isfirstCharacter);
+        $( '#movelast' ).prop('disabled', characterSet.islastCharacter);
         
     });
 
@@ -47,6 +51,8 @@ $( document ).ready(function() {
         $( '#char_pic' ).prop('src',characterSet.char);
         $( '#syllable' ).text(characterSet.syllable);
         $( '#moveprevious' ).prop('disabled', characterSet.isfirstCharacter);
+        $( '#movefirst' ).prop('disabled', characterSet.isfirstCharacter);
+        $( '#movelast' ).prop('disabled', characterSet.islastCharacter);
     })
 
     $( '#movelast').click(function(event){
@@ -54,29 +60,41 @@ $( document ).ready(function() {
         $( '#char_pic' ).prop('src',characterSet.char);
         $( '#syllable' ).text(characterSet.syllable);
         $( '#moveprevious' ).prop('disabled', characterSet.isfirstCharacter);
+        $( '#movefirst' ).prop('disabled', characterSet.isfirstCharacter);
+        $( '#movelast' ).prop('disabled', characterSet.islastCharacter);
     })
 
     $( '#moveprevious' ).click(function(event){
         var pos = characterSet.previous();
         $( '#char_pic' ).prop('src',characterSet.char);
         $( '#syllable' ).text(characterSet.syllable);
-        $( '#moveprevious' ).prop('disabled', characterSet.isfirstCharacter);   
+        $( '#moveprevious' ).prop('disabled', characterSet.isfirstCharacter);
+        $( '#movefirst' ).prop('disabled', characterSet.isfirstCharacter);
+        $( '#movelast' ).prop('disabled', characterSet.islastCharacter);
     })
 
     $(document).keypress(function(event) {
         if ( event.which == 110 || event.which == 78 ) {
-            characterSet.next();
-            $( '#moveprevious' ).prop('disabled', characterSet.isfirstCharacter);
+                characterSet.next();
+                $( '#moveprevious' ).prop('disabled', characterSet.isfirstCharacter);
+                $( '#movefirst' ).prop('disabled', characterSet.isfirstCharacter);
+                $( '#movelast' ).prop('disabled', characterSet.islastCharacter);
         } else if ( event.which === 112 || event.which === 78 ) { // p for prev
-            characterSet.previous();
-            $( '#moveprevious' ).prop('disabled', characterSet.isfirstCharacter);
-        } else if ( event.which === 102 || event.which === 70 ) { // f for first
+                characterSet.previous();
+                $( '#moveprevious' ).prop('disabled', characterSet.isfirstCharacter);
+                $( '#movefirst' ).prop('disabled', characterSet.isfirstCharacter);
+                $( '#movelast' ).prop('disabled', characterSet.islastCharacter);
+         } else if ( event.which === 102 || event.which === 70 ) { // f for first
             characterSet.first();
             $( '#moveprevious' ).prop('disabled', characterSet.isfirstCharacter);
-        } else if ( event.which === 108 || event.which === 76 ) { // l for last
+            $( '#movefirst' ).prop('disabled', characterSet.isfirstCharacter);
+            $( '#movelast' ).prop('disabled', characterSet.islastCharacter);
+    } else if ( event.which === 108 || event.which === 76 ) { // l for last
             characterSet.last();
             $( '#moveprevious' ).prop('disabled', characterSet.isfirstCharacter);
-        }
+            $( '#movefirst' ).prop('disabled', characterSet.isfirstCharacter);
+            $( '#movelast' ).prop('disabled', characterSet.islastCharacter);
+    }
         $( '#char_pic' ).prop('src',characterSet.char);
         $( '#syllable' ).text(characterSet.syllable);
      });    
