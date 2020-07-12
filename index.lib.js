@@ -62,7 +62,7 @@ class Hiragana extends Japanese {
 class Katakana extends Japanese {
     constructor() {
         var request = new XMLHttpRequest();
-        request.open('GET', '/charactersets/katakana.json', false);  // `false` makes the request synchronous
+        request.open('GET', 'charactersets/katakana.json', false);  // `false` makes the request synchronous
         request.send(null);
         super(JSON.parse(request.responseText));
     }
@@ -71,7 +71,7 @@ class Katakana extends Japanese {
   class Kanji extends Japanese {
     constructor() {
         var request = new XMLHttpRequest();
-        request.open('GET', '/charactersets/kanji.json', false);  // `false` makes the request synchronous
+        request.open('GET', 'charactersets/kanji.json', false);  // `false` makes the request synchronous
         request.send(null);
         super(getKanjiJson());
     }
