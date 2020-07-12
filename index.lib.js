@@ -70,6 +70,9 @@ class Katakana extends Japanese {
   }  
   class Kanji extends Japanese {
     constructor() {
+        var request = new XMLHttpRequest();
+        request.open('GET', '/charactersets/kanji.json', false);  // `false` makes the request synchronous
+        request.send(null);
         super(getKanjiJson());
     }
 
