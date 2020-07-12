@@ -1,7 +1,6 @@
-
-class Hiragana {
-    constructor() {
-        this.character_set = getHiraganaJson();
+class Japanese {
+    constructor(character_set) {
+        this.character_set = character_set;
         this.cursor_pos = 0;
         this.cursor = [];
         for (var i=0;i<48;i++){
@@ -10,6 +9,7 @@ class Hiragana {
         this.char = this.character_set[this.cursor[this.cursor_pos]].char;
         this.syllable = this.character_set[this.cursor[this.cursor_pos]].syllable;
     }
+
     next(){
         this.cursor_pos +=1;
         if (this.cursor_pos === this.character_set.length){
@@ -40,6 +40,12 @@ class Hiragana {
         this.char = this.character_set[this.cursor[this.cursor_pos]].char;
         this.syllable = this.character_set[this.cursor[this.cursor_pos]].syllable;        
         return this.cursor_pos;
+    }
+}
+
+class Hiragana extends Japanese {
+    constructor() {
+        super(getHiraganaJson());
     }
 
   }
