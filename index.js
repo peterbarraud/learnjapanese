@@ -9,6 +9,22 @@ $( document ).ready(function() {
     $(".form-signin").submit(function(e){
         e.preventDefault();
     });
+    
+    $( '#appversion' ).text('v' + $('meta[name=version]').attr("content"));
+    // display version if we're told to
+    // and how are we told - by using the showversion=true query string
+    var queryparts = window.location.href.split("?");
+    if (queryparts.length > 1){
+        $.each(queryparts[1].split('&'), function( index, part ) {
+            var [name, value] = part.split('=');
+            if (name === 'showversion'){
+                $( '#appversion' ).css('display', value === "true" ? 'block' : 'none');
+            }
+        });
+        
+    }
+
+
 
     $( '#home' ).click(function(){
         $( '#home' ).attr('height',"300px");
