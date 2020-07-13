@@ -18,7 +18,7 @@ $( document ).ready(function() {
         $.each(queryparts[1].split('&'), function( index, part ) {
             var [name, value] = part.split('=');
             if (name === 'showversion'){
-                $( '#appversion' ).css('display', value === "true" ? 'block' : 'none');
+                $( '#appversion' ).css('display', value === "true" || value === "1" ? 'block' : 'none');
             }
         });
         
